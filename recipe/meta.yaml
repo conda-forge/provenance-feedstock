@@ -1,5 +1,5 @@
 {% set name = "provenance" %}
-{% set version = "0.14.0" %}
+{% set version = "0.14.1" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6815eb4057247f4d54e77f8dd3d58ae801b78253cdc3b24e15887a8e502d9eb5
+  sha256: 873f716e1e1a2b8550200bb9cd643460cc479144bceabcb42209bb3b1f8583d0
 
-build: 
-  script: "{{ PYTHON }} -m pip install . -vv"
+build:
+  script: {{ PYTHON }} -m pip install . -vv
   number: 0
   noarch: python
 
@@ -18,7 +18,7 @@ requirements:
   host:
     - python >=3.5
     - pip
-    - pytest 
+    - pytest
     - pytest-runner
   run:
     - alembic >=0.9.1
