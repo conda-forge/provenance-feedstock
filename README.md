@@ -119,4 +119,5 @@ Feedstock Maintainers
 =====================
 
 * [@andersy005](https://github.com/andersy005/)
+* [@bmabey](https://github.com/bmabey/)
 
