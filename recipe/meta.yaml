@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/provenance-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/provenance-{{ version }}.tar.gz
   sha256: 873f716e1e1a2b8550200bb9cd643460cc479144bceabcb42209bb3b1f8583d0
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -19,7 +19,7 @@ requirements:
 
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
 
   run:
     - alembic >=0.9.1
@@ -35,7 +35,7 @@ requirements:
     - psutil >=5.0.0
     - psycopg2
     - pyarrow
-    - python >=3.6
+    - python >={{ python_min }}
     - python-graphviz
     - s3fs <=0.5.1
     - sqlalchemy >=1.1.3
@@ -52,6 +52,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/bmabey/provenance
